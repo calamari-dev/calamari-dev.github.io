@@ -1,0 +1,82 @@
+---
+import "@acab/reset.css";
+import "../styles/common.css";
+
+import { getCollection } from "astro:content";
+import { compareDesc, format } from "date-fns";
+import Head from "../components/Head.astro";
+import Layout from "../components/Layout.astro";
+
+const entries = await getCollection("posts");
+entries.sort((x, y) => {
+  return compareDesc(new Date(x.data.release), new Date(y.data.release));
+});
+
+const tags = new Map<string, number>();
+entries
+  .flatMap((entry) => entry.data.tags)
+  .sort(new Intl.Collator("ja-JP").compare)
+  .forEach((tag) => tags.set(tag, (tags.get(tag) ?? 0) + 1));
+---
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <style>
+      .heading2 {
+        margin-bottom: 1rem;
+
+        &:not(:first-of-type) {
+          margin-top: 2.5rem;
+        }
+      }
+
+      .taglist {
+        list-style: none;
+        padding: 0 0.5em;
+      }
+
+      .taglist__item {
+        display: inline flow-root;
+        margin: 0 0.5em;
+      }
+
+      .articlelist {
+        list-style: none;
+        margin-left: 2em;
+        overflow-wrap: anywhere;
+        padding-left: 1em;
+        text-indent: -2em;
+      }
+    </style>
+    <Head description="コンテンツ" title="コンテンツ" permalink="/contents" />
+  </head>
+  <body>
+    <Layout>
+      <h2 class="heading2">タグ一覧</h2>
+      <ul class="taglist">
+        {
+          Array.from(tags).map(([tag, count]) => (
+            <li class="taglist__item">
+              <a href={`/tags/${tag}`}>
+                #{tag} ({count})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <h2 class="heading2">記事一覧</h2>
+      <ul class="articlelist">
+        {
+          entries.map((entry) => (
+            <li>
+              <a href={`/posts/${entry.slug}`}>
+                {entry.data.title}
+                {format(new Date(entry.data.release), " (yyyy-MM-dd)")}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Layout>
+  </body>
+</html>

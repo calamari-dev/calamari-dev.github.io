@@ -1,0 +1,114 @@
+.markdown {
+  h3 {
+    border-bottom: solid 1px var(--color-primary, slategray);
+    font-size: 1.4rem;
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3::before {
+    color: var(--color-primary, slategray);
+    content: "§";
+    letter-spacing: 0.5em;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    overflow-wrap: break-word;
+  }
+
+  blockquote {
+    background-blend-mode: luminosity;
+    background-color: var(--color-primary, slategray);
+    background-image: linear-gradient(#eee 0% 100%, transparent);
+    border-left: solid 2px var(--color-primary, slategray);
+    margin: 1rem 0 1rem calc(1.75em - 1px);
+    padding-left: calc(1.25em - 1px);
+    position: relative;
+  }
+
+  blockquote::before {
+    aspect-ratio: 1;
+    background:
+      no-repeat center 45% / 60% url("../assets/quote.svg"),
+      var(--color-primary, slategray);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    left: -1px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5em;
+  }
+
+  a {
+    color: var(--color-link, mediumblue);
+    word-break: break-all;
+  }
+
+  a:visited {
+    color: var(--color-visited, indigo);
+  }
+
+  :is(ol, ul) {
+    margin: 1rem 0 1rem 2rem;
+    overflow-wrap: break-word;
+  }
+
+  li > :is(ol, ul) {
+    margin: 0 0 0 2rem;
+  }
+
+  li::marker {
+    color: var(--color-primary, slategray);
+    font-weight: bold;
+  }
+
+  pre[class*="language-"] {
+    border: solid 1px;
+    border-radius: 0;
+    margin: 1rem 0;
+  }
+
+  .math-display {
+    overflow-x: auto;
+  }
+
+  :is(math-note, math-proof, math-theorem) {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  @media print {
+    blockquote {
+      border: none;
+      margin: 1rem 0;
+      padding-left: 3em;
+    }
+
+    blockquote::before {
+      display: none;
+    }
+
+    pre[class*="language-"] > code {
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .katex-display > .katex {
+      white-space: normal;
+    }
+
+    .katex-display > .base {
+      margin: 0.25em 0;
+    }
+
+    .katex-display {
+      margin: 0.5em 0;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+---
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+---
+
+<style>
+  .page {
+    background: var(--color-background);
+    min-height: 100svh;
+    padding-bottom: var(--height-footer);
+    position: relative;
+  }
+
+  .page__content {
+    background: var(--color-document);
+    margin: 2rem auto;
+    max-width: 43rem;
+    padding: 1.5rem;
+  }
+
+  .page__footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  @media (width >= 43rem) {
+    .page__content {
+      max-width: 46rem;
+      padding: 2.5rem 3rem;
+    }
+  }
+</style>
+<div class="page">
+  <Header />
+  <main class="page__content">
+    <slot />
+  </main>
+  <div class="page__footer">
+    <Footer />
+  </div>
+</div>

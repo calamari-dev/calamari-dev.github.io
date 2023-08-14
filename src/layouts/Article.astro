@@ -1,0 +1,87 @@
+---
+import "@acab/reset.css";
+import "../styles/common.css";
+import "../styles/markdown.css";
+import "a11y-syntax-highlighting/dist/prism/a11y-light.css";
+import "katex/dist/katex.min.css";
+
+import type { MarkdownLayoutProps } from "astro";
+import type { PostType } from "../content/config";
+import { format } from "date-fns";
+import Head from "../components/Head.astro";
+import Layout from "../components/Layout.astro";
+
+type Props = MarkdownLayoutProps<PostType>;
+
+const { frontmatter } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <style>
+      .header {
+        margin-bottom: 2.5rem;
+      }
+
+      .header__tag {
+        display: inline flow-root;
+        font-size: 0.9rem;
+        margin-right: 1em;
+
+        &::before {
+          content: "#";
+        }
+      }
+
+      .header__time {
+        font-size: 0.9rem;
+      }
+    </style>
+    <Head
+      description={frontmatter.description}
+      title={frontmatter.title}
+      permalink={pathname}
+    />
+  </head>
+  <body>
+    <Layout>
+      <header class="header">
+        <h2>{frontmatter.title}</h2>
+        <div>
+          {
+            frontmatter.tags.map((tag) => (
+              <a class="header__tag" href={`/tags/${tag}/`}>
+                {tag}
+              </a>
+            ))
+          }
+        </div>
+        <div class="header__time">
+          公開日:
+          <time datetime={frontmatter.release}>
+            {format(new Date(frontmatter.release), "yyyy年MM月dd日")}
+          </time>
+        </div>
+        {
+          !!frontmatter.update && (
+            <div class="header__time">
+              最終更新日:
+              <time datetime={frontmatter.update}>
+                {format(new Date(frontmatter.update), "yyyy年MM月dd日")}
+              </time>
+            </div>
+          )
+        }
+      </header>
+      <article class="markdown">
+        <slot />
+      </article>
+    </Layout>
+    <script>
+      import "../components/math-note";
+      import "../components/math-proof";
+      import "../components/math-theorem";
+    </script>
+  </body>
+</html>

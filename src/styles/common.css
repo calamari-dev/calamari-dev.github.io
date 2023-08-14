@@ -1,0 +1,49 @@
+:root {
+  --color-background: whitesmoke;
+  --color-document: white;
+  --color-text: #333;
+  --color-primary: slategray;
+  --color-link: mediumblue;
+  --color-visited: indigo;
+  --height-header: 6rem;
+  --height-footer: 6rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  color: var(--color-text);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.75;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+@media (width >= 43rem) {
+  :root {
+    --height-header: 5rem;
+  }
+}
+
+@media print {
+  html {
+    font-size: 10pt;
+  }
+}

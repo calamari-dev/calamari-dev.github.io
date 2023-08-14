@@ -1,0 +1,58 @@
+---
+import "@acab/reset.css";
+import "../../styles/common.css";
+
+import { CollectionEntry, getCollection } from "astro:content";
+import { compareDesc } from "date-fns";
+import Head from "../../components/Head.astro";
+import Layout from "../../components/Layout.astro";
+import Post from "../../components/Post.astro";
+
+interface Props {
+  tag: string;
+  posts: CollectionEntry<"posts">[];
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection("posts");
+  const tags = [...new Set(entries.map((entry) => entry.data.tags).flat())];
+
+  return tags.map((tag) => {
+    const posts = entries.filter((entry) => entry.data.tags.includes(tag));
+    return { params: { tag }, props: { tag, posts } };
+  });
+}
+
+const { tag, posts } = Astro.props;
+
+posts.sort((x, y) => {
+  return compareDesc(new Date(x.data.release), new Date(y.data.release));
+});
+---
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <style>
+      .post {
+        margin: 1rem 0;
+      }
+    </style>
+    <Head
+      description={`#${tag}`}
+      title={`#${tag}`}
+      permalink={`/tags/${tag}`}
+    />
+  </head>
+  <body>
+    <Layout>
+      <h2>#{tag}</h2>
+      {
+        posts.map((post) => (
+          <div class="post">
+            <Post {...post} />
+          </div>
+        ))
+      }
+    </Layout>
+  </body>
+</html>

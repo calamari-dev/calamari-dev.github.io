@@ -1,0 +1,54 @@
+---
+import type { PostType } from "../content/config";
+import { format } from "date-fns";
+
+interface Props {
+  slug: string;
+  data: PostType;
+}
+
+const { slug, data } = Astro.props;
+---
+
+<style>
+  .post {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 1em;
+  }
+
+  .post__title {
+    font-size: 1rem;
+  }
+
+  .post__date {
+    font-size: 0.9rem;
+    margin-right: 1em;
+  }
+
+  .post__tag {
+    display: inline flow-root;
+    font-size: 0.9rem;
+    margin-right: 1em;
+  }
+
+  .post__tag::before {
+    content: "#";
+  }
+</style>
+<article class="post">
+  <h3 class="post__title">
+    <a href={`/posts/${slug}`}>{data.title}</a>
+  </h3>
+  <time class="post__date" datetime={data.release}>
+    {format(new Date(data.release), "yyyy年MM月dd日")}
+  </time>
+  {
+    data.tags.map((tag) => (
+      <a class="post__tag" href={`/tags/${tag}`}>
+        {tag}
+      </a>
+    ))
+  }
+  <p>{data.description}</p>
+</article>

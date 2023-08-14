@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-html"],
+  "plugins": ["stylelint-order"],
+  "overrides": [
+    { "files": ["**/*.js", "**/*.ts"], "customSyntax": "postcss-lit" }
+  ],
+  "ignoreFiles": ["**/*.cjs", "**/.*.cjs", "**/*.mjs", "**/.*.mjs"],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "selector-class-pattern": null
+  }
+}

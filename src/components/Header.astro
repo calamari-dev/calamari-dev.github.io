@@ -1,0 +1,86 @@
+---
+import logo from "../assets/logo.svg";
+
+const sitename = "数理工学ノート";
+---
+
+<style>
+  .header {
+    background: var(--color-document);
+    border-bottom: solid 2px var(--color-primary);
+    display: grid;
+    grid-template: 4rem 2rem / 100%;
+    grid-template-areas: "title" "navigation";
+    height: var(--height-header);
+    width: 100%;
+  }
+
+  .header__title {
+    grid-area: title;
+    padding: 1.2rem;
+  }
+
+  .header__logo {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+    width: 100%;
+  }
+
+  .header__navigation {
+    align-self: center;
+    grid-area: navigation;
+  }
+
+  .navigation {
+    align-items: center;
+    display: flex;
+    list-style: none;
+  }
+
+  .navigation__item {
+    flex: 1;
+    padding: 0 0.5rem;
+  }
+
+  .navigation__link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  @media (width >= 43rem) {
+    .header {
+      grid-template: 5rem / 16rem 1fr auto;
+      grid-template-areas: "title . navigation";
+      padding: 0 calc(max(50% - 550px, 0px) + 1.25rem);
+    }
+  }
+</style>
+<header class="header">
+  <h1 class="header__title">
+    <a href="/">
+      <img
+        class="header__logo"
+        src={logo}
+        alt={sitename}
+        width="335"
+        height="45"
+      />
+    </a>
+  </h1>
+  <nav class="header__navigation">
+    <ul class="navigation">
+      <li class="navigation__item">
+        <a class="navigation__link" href="/">Home</a>
+      </li>
+      <li class="navigation__item">
+        <a class="navigation__link" href="/contents">Contents</a>
+      </li>
+      <li class="navigation__item">
+        <a class="navigation__link" href="/about">About</a>
+      </li>
+    </ul>
+  </nav>
+</header>

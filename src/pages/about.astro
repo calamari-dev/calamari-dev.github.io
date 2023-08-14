@@ -1,0 +1,68 @@
+---
+import "@acab/reset.css";
+import "../styles/common.css";
+import avater from "../assets/avater.webp";
+
+import Head from "../components/Head.astro";
+import Layout from "../components/Layout.astro";
+---
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <style>
+      .avater {
+        border: solid 1px;
+        border-radius: 50%;
+        margin: 0 auto;
+        width: 30%;
+      }
+
+      .personality {
+        border-spacing: 1em 0.5em;
+        padding: 0.5em 0;
+      }
+    </style>
+    <Head description="数理工学ノート" permalink="" />
+  </head>
+  <body>
+    <Layout>
+      <img
+        class="avater"
+        src={avater}
+        alt="いかのアバター"
+        width="500"
+        height="500"
+      />
+      <h2>About</h2>
+      <p>「いか」といいます．</p>
+      <table class="personality">
+        <tr>
+          <td>所属</td>
+          <td>早稲田大学応用数理学科4年</td>
+        </tr>
+        <tr>
+          <td>Twitter</td>
+          <td>
+            <a href="https://twitter.com/cuttlefish_math"> @cuttlefish_math</a>
+          </td>
+        </tr>
+        <tr>
+          <td>メール</td>
+          <td>
+            <mail-me>こちらまでお願いします．</mail-me>
+          </td>
+        </tr>
+        <tr>
+          <td>専攻</td>
+          <td>数値計算</td>
+        </tr>
+        <tr>
+          <td>関心</td>
+          <td>音声処理・時間周波数解析・信号処理・数値計算</td>
+        </tr>
+      </table>
+    </Layout>
+  </body><script>
+    import "../components/mailme";
+  </script>
+</html>
