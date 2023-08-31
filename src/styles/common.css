@@ -42,6 +42,17 @@ ul {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #333;
+    --color-document: #222;
+    --color-text: white;
+    --color-primary: white;
+    --color-link: skyblue;
+    --color-visited: skyblue;
+  }
+}
+
 @media print {
   html {
     font-size: 10pt;

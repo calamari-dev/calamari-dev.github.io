@@ -57,6 +57,12 @@ const sitename = "数理工学ノート";
       padding: 0 calc(max(50% - 550px, 0px) + 1.25rem);
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+    .header__logo {
+      filter: invert(100%) hue-rotate(180deg);
+    }
+  }
 </style>
 <header class="header">
   <h1 class="header__title">

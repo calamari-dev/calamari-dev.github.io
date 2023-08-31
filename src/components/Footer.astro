@@ -5,7 +5,7 @@ import twitter from "../assets/twitter.svg";
 
 <style>
   .footer {
-    background: white;
+    background: var(--color-document);
     border-top: solid 2px var(--color-primary);
     height: var(--height-footer);
     position: relative;
@@ -44,6 +44,12 @@ import twitter from "../assets/twitter.svg";
     object-position: center center;
     width: 100%;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .mail {
+      filter: invert(100%) hue-rotate(180deg);
+    }
+  }
 </style>
 <footer class="footer">
   <ul class="snslist footer__snslist">
@@ -58,7 +64,7 @@ import twitter from "../assets/twitter.svg";
     </li>
     <li class="snslist__item">
       <mail-me>
-        <img class="snsicon" src={mail} alt="メール" />
+        <img class="mail snsicon" src={mail} alt="メール" />
       </mail-me>
     </li>
   </ul>

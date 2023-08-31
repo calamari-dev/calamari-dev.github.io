@@ -20,6 +20,10 @@
     overflow-wrap: break-word;
   }
 
+  p + p {
+    margin-top: 1.5em;
+  }
+
   blockquote {
     background-blend-mode: luminosity;
     background-color: var(--color-primary, slategray);

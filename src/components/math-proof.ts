@@ -15,6 +15,14 @@ export class MathProof extends LitElement {
       font-weight: bold;
     }
 
+    .proof:not([open]) .proof__begin::after {
+      content: "（開く）";
+    }
+
+    .proof:is([open]) .proof__begin::after {
+      content: "（閉じる）";
+    }
+
     .proof__end {
       border-bottom: solid 1px;
       border-right: solid 1px;
