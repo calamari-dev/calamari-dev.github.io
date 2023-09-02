@@ -2,6 +2,7 @@
 layout: "../../layouts/Article.astro"
 title: 瞬時周波数の定義について
 release: "2023-08-30T00:00:00+00:00"
+update: "2023-09-02T00:00:00+00:00"
 description: 瞬時周波数が矛盾なく定義できることの証明．
 tags: ["瞬時周波数", "時間周波数解析", "数学"]
 ---
@@ -12,7 +13,7 @@ tags: ["瞬時周波数", "時間周波数解析", "数学"]
 
 この記事では，瞬時周波数が数学的に矛盾なく定義できることを証明する．Flandrin (2008) や森勢（2018）など，多くの文献において，複素数値関数$f(t)$の瞬時角周波数は次のような形で定義される．
 $$
-  \frac{\mathrm{d}}{\mathrm{d}t}\arg f(t)
+  \omega(t) = \frac{\mathrm{d}}{\mathrm{d}t}\arg f(t)
 $$
 
 ただし，偏角$\arg f(t)$の主値は$t$についてなめらかに変化するように選ぶ．この操作を位相アンラッピングという．この記事では，偏角を含まない瞬時角周波数の式を導出し，適切な仮定の下では位相アンラッピングが可能であることを示す．
@@ -33,8 +34,7 @@ $$
 
 この定義で問題になるのは，関数$\varphi(t)$の存在と，瞬時角周波数$\omega(t_{0})$のwell-definednessである．このうち，瞬時角周波数のwell-definednessはすぐ示せる．実際，関数$\varphi_{1}(t)$，$\varphi_{2}(t)$が$\varphi(t)$の条件を満たすとき
 $$
-  \mathrm{e}^{\varphi_{1}(t)-\varphi_{2}(t)} = \frac{f(t)}{f(t)}
-  = 1,
+  \mathrm{e}^{\mathrm{i}(\varphi_{1}(t)-\varphi_{2}(t))} = 1,
   \quad\varphi_{1}(t)-\varphi_{2}(t) \equiv 0\pmod{2\pi}
 $$
 であり，関数$\varphi_{1}(t)$，$\varphi_{2}(t)$は連続なので，$\varphi_{1}(t)-\varphi_{2}(t)$は定数関数である．よって
@@ -104,7 +104,7 @@ $$
 
 <math-proof data-open>
 
-$r=\lvert f(t)\rvert$，$x=\operatorname{Re}z$，$y=\operatorname{Im}z$とおく．$\lvert t_{1}-t_{0}\rvert\lt\delta$ならば
+$r=\lvert f(t)\rvert$，$x=\operatorname{Re}f(t)$，$y=\operatorname{Im}f(t)$とおく．$\lvert t_{1}-t_{0}\rvert\lt\delta$ならば
 $$
     \ln\biggl\lvert\frac{f(t_{1})}{f(t_{0})}\biggr\rvert = \int_{\lvert f(t_{0})\rvert}^{\lvert f(t_{1})\rvert}\frac{\mathrm{d}r}{r}
     = \int_{t_{0}}^{t_{1}}\frac{1}{r}\frac{\mathrm{d}r}{\mathrm{d}t}\,\mathrm{d}t
