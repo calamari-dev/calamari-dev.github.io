@@ -78,6 +78,37 @@
     margin: 1rem 0;
   }
 
+  table {
+    border-collapse: collapse;
+    display: block;
+    margin: 1.5rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-left: 2rem;
+    width: max-content;
+  }
+
+  thead {
+    border-bottom: solid 1px var(--color-primary, slategray);
+    border-top: solid 1px var(--color-primary, slategray);
+  }
+
+  tbody {
+    border-bottom: solid 1px var(--color-primary, slategray);
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  hr {
+    border-top: solid 1px var(--color-primary, slategray);
+    margin: 2rem 3rem;
+  }
+
   .math-display {
     overflow-x: auto;
   }
