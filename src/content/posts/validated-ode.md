@@ -2,6 +2,7 @@
 layout: "../../layouts/Article.astro"
 title: 常微分方程式の精度保証つき数値計算について
 release: "2023-12-17T00:00:00+00:00"
+update: "2023-12-18T00:00:00+00:00"
 description: 計算機で解析解の存在範囲を厳密に特定する「精度保証つき数値計算」について紹介する．
 tags: ["数値計算", "精度保証", "ODE"]
 ---
@@ -489,9 +490,9 @@ $U$を$\mathbb{R}^{d}$の部分集合，$\bm{x}_{0}$を$U$の元，$D=\lbrack 0,
 $$
   \bm{f}\colon\lbrace(\bm{x},t)\mid\bm{x}\in U\;\mathrel{\textrm{and}}\;t\in D\rbrace \to \mathbb{R}^{d}
 $$
-はリプシッツ条件を満たすとする．すなわち，定数$L\gt 0$が存在し，すべての$\bm{x}_{0},\bm{x}_{1}\in U$について
+はリプシッツ条件を満たすとする．すなわち，定数$L\gt 0$が存在し，すべての$\bm{x},\bm{x}'\in U$について
 $$
-  \sup_{t\in D}\lvert\bm{f}(\bm{x}_{1},t)-\bm{f}(\bm{x}_{0},t)\rvert \leq L\lvert\bm{x}_{1}-\bm{x}_{0}\rvert
+  \sup_{t\in D}\lvert\bm{f}(\bm{x},t)-\bm{f}(\bm{x}',t)\rvert \leq L\lvert\bm{x}-\bm{x}'\rvert
 $$
 となると仮定する．一様ノルムに関する閉部分集合$K\subseteq C(D,\mathbb{R}^{d})$が以下の3条件を満たすとき，$K$の元で$P_{\bm{f}}$の不動点となるものがただ一つ存在する．また，その不動点はピカール反復の極限関数である．
 
