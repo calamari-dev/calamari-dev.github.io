@@ -15,7 +15,7 @@ tags: ["数値計算", "精度保証", "ODE"]
 
 誤差を評価するには，まず解の存在を証明しなければならない．計算の目的によっては，解が一意であることも示す必要があるだろう．こうした要件から，従来の数値解法をそのまま精度保証付き数値解法に修正できるとは限らず，しばしば精度保証ならではのアプローチが必要になる．この記事によって，この記事によって，精度保証付き数値計算が持つそうした特徴を少しでも伝えられたら嬉しい．
 
-Googleドライブから，[この記事のPDF版](https://drive.google.com/file/d/1396sFuqRKszkY27UDwqUwqJO8uz4Moa_/view?usp=sharing)をダウンロードできる．印刷して読みたい方にはPDF版をおすすめする．
+Googleドライブから，[この記事のPDF版](https://drive.google.com/file/d/1396sFuqRKszkY27UDwqUwqJO8uz4Moa_/view?usp=sharing)と[Markdown版](https://drive.google.com/file/d/1k8Dbz4Jk55xRyuK4vgm6PQfePhO6HfGu/view?usp=sharing)をダウンロードできる．印刷して読みたい方にはPDF版をおすすめする．
 
 ### 浮動小数点演算
 
