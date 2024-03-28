@@ -469,12 +469,11 @@ $$
 
 <math-proof data-open>
 
-任意の有界集合$S\subseteq K$に対して，$\alpha(B(S))=0$より
+有界だが相対コンパクトでない任意の$S\subseteq K$に対して，$\alpha(B(S))=0$より
 $$
   \begin{aligned}
-    \alpha(T(S)) &\leq \alpha(A(S)\cup B(S))\\
-	&= \max\lbrace\alpha(A(S)),\alpha(B(S))\rbrace\\
-	&= \alpha(A(S))
+    \alpha(T(S)) &\leq \alpha(A(S))+\alpha(B(S))\\
+	  &\leq \alpha(A(S))
   \end{aligned}
 $$
 であり，$A$は縮小写像だから$\alpha(A(S))\lt\alpha(S)$である．
@@ -535,7 +534,7 @@ $$
 $$
 と書ける．また，凸包は次のようにも特徴づけられる．
 
-<math-theorem data-type="定義" data-level="4">
+<math-theorem data-type="命題" data-level="4">
 
 $S$を$\mathcal{X}$の部分集合とする．このとき，$\operatorname{co}(S)$は$S$の元の凸結合の全体集合である．
 
@@ -546,7 +545,7 @@ $S$を$\mathcal{X}$の部分集合とする．このとき，$\operatorname{co}(
 $S$を含む任意の凸集合は，$S$の元の凸結合すべてを元に持つ．したがって，$S$の元の凸結合の全体集合$C$が凸集合であれば，$C$は$S$を含む最も小さい凸集合であり，$C=\operatorname{co}(S)$となる．$S$の元の凸結合
 $$
   x = \sum_{i=1}^{m}\lambda_{i}x_{i},
-  \quad y = \sum_{i=1}^{n}\eta_{i}x_{i}\quad(m\leq n)
+  \quad y = \sum_{i=1}^{n}\eta_{i}y_{i}\quad(m\leq n)
 $$
 を任意にとる．$m\lt i\leq n$では$\lambda_{i}=0$とおく．実数$t$は区間$0\leq t\leq 1$を動くものとし
 $$
